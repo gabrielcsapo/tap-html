@@ -1,0 +1,25 @@
+TAP version 13
+# json-ex
+# should be able to stringify a basic javascript object
+ok 1 should be equivalent
+# should be able to stringify a complex javascript object
+ok 2 should be equal
+# should be able to parse a complex object
+ok 3 should be equal
+ok 4 should be equal
+ok 5 should be equal
+ok 6 should be equal
+# should be able to stringify a complex javascript object and parse it back
+ok 7 should be equal
+ok 8 should be equal
+ok 9 should be equal
+ok 10 should be equal
+ok 11 should be equal
+ok 12 should be equal
+ok 13 should be equal
+
+1..13
+# tests 13
+# pass  13
+
+# ok

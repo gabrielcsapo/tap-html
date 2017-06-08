@@ -1,0 +1,36 @@
+{
+  "name": "tap-html",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tape-html": "./bin/index.js"
+  },
+  "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "duplexer": "^0.1.1",
+    "html-webpack-inline-source-plugin": "0.0.9",
+    "html-webpack-plugin": "^2.28.0",
+    "prop-types": "^15.5.10",
+    "psychic-ui": "^1.0.7",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "style-loader": "^0.18.2",
+    "tap-parser": "^5.3.3",
+    "through2": "^2.0.3",
+    "tmp": "0.0.31",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "tap": "^10.3.3"
+  }
+}
