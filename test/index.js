@@ -37,7 +37,6 @@ test('look at me!', (t) => {
       t.test('long 2', (t) => {
         setTimeout(() => {
           t.equal(true, true);
-          console.log(Date.now());
           t.end();
         }, 3000)
       });

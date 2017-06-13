@@ -11,7 +11,6 @@ module.exports = () => {
   var currentPlan = -1;
   var currentAssertion = -1;
   var data = [];
-  var name = null;
   var plan = null;
 
   var startTime = Date.now();
@@ -84,7 +83,6 @@ module.exports = () => {
     });
 
     res['tests'] = data
-    console.log(JSON.stringify(data, null, 4));
     generate(res, process.cwd());
   });
 
