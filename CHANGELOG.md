@@ -1,3 +1,7 @@
+# 0.0.4 (06/27/2017)
+
+- fixes issue with webpack ignoring node_modules folder, fixes it by only including `tap-html`
+
 # 0.0.3 (06/27/2017)
 
 - upgrades `webpack@^2.6.1` -> `webpack@^3.0.0`

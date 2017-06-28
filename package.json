@@ -1,6 +1,6 @@
 {
   "name": "tap-html",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an html tap reporter",
   "main": "index.js",
   "scripts": {
