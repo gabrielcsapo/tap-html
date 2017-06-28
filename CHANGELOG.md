@@ -1,6 +1,15 @@
+# 0.0.3 (06/27/2017)
+
+- upgrades `webpack@^2.6.1` -> `webpack@^3.0.0`
+- upgrades `babel-loader@^7.0.0` -> `babel-loader@^7.1.1`
+- upgrades `html-webpack-plugin@^2.28.0` -> `html-webpack-plugin@^2.29.0`
+- upgrades `react@^15.5.4` -> `react@^15.6.1`
+- upgrades `react-dom@^15.5.4` -> `react-dom@^15.6.1`
+- fixes the bin name to be the correct one
+
 # 0.0.2 (06/13/2017)
 
-- removes console statements and unused code paths 
+- removes console statements and unused code paths
 
 # 0.0.1 (06/07/2017)
 
