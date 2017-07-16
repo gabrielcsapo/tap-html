@@ -1,3 +1,7 @@
+# 0.0.5 (07/16/2017)
+
+- updates and fixes implementation with tap-parser@6.0.0
+
 # 0.0.4 (06/27/2017)
 
 - fixes issue with webpack ignoring node_modules folder, fixes it by only including `tap-html`

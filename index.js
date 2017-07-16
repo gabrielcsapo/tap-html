@@ -1,12 +1,12 @@
-const parser   = require('tap-parser');
-const through  = require('through2');
-const duplexer = require('duplexer');
-const generate = require('./lib/generate');
+const Parser   = require('tap-parser');
+const Through  = require('through2');
+const Duplexer = require('duplexer');
+const Generate = require('./lib/generate');
 
 module.exports = () => {
-  var tap = parser();
-  var out = through.obj();
-  var dup = duplexer(tap, out);
+  var tap = new Parser();
+  var out = Through.obj();
+  var dup = Duplexer(tap, out);
 
   var currentPlan = -1;
   var currentAssertion = -1;
@@ -83,7 +83,7 @@ module.exports = () => {
     });
 
     res['tests'] = data
-    generate(res, process.cwd());
+    Generate(res, process.cwd());
   });
 
   return dup;
