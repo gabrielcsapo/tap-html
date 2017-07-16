@@ -1,5 +1,7 @@
 # tap-html
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gabrielcsapo/tap-html.svg)](https://greenkeeper.io/)
+
 > an html tap reporter
 
 [![Npm Version](https://img.shields.io/npm/v/tap-html.svg)](https://www.npmjs.com/package/tap-html)
