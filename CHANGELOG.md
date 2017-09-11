@@ -1,3 +1,11 @@
+# Unreleased
+
+- adds fields to `package.json` that were formerly missing
+- fixes a bug with flat tests
+  - adds tests for flat and nested tests for the parse functionality
+- fixes bug with empty test suites
+- default behavior will output to stdout, an added flag --out <file> will write to disk
+
 # 0.0.5 (07/16/2017)
 
 - updates and fixes implementation with tap-parser@6.0.0

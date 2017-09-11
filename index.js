@@ -1,9 +1,8 @@
 const Parser   = require('tap-parser');
 const Through  = require('through2');
 const Duplexer = require('duplexer');
-const Generate = require('./lib/generate');
 
-module.exports = () => {
+module.exports = (callback) => {
   var tap = new Parser();
   var out = Through.obj();
   var dup = Duplexer(tap, out);
@@ -54,14 +53,27 @@ module.exports = () => {
 
     // combine and clean up tests
     for(var i = 0; i < data.length; i++) {
+      // trims the name from having any extra new line breaks
+      data[i].name = data[i].name.trim();
+
       // This is a top level plan
       if(data[i].assertions.length == 0) {
         // move on with the tests
         plan = i;
         data[plan].tests = [];
         delete data[i].assertions;
+      } else if(plan == -1) {
+        // this is flat plan that has no parent do nothing
       } else {
         // We know this is part of the currentPlan
+        if(!data[plan]) {
+          data[plan] = {
+            tests: []
+          };
+        } else {
+          data[plan].tests = data[plan].tests || [];
+        }
+
         data[plan].tests.push(data[i]);
         delete data[i];
       }
@@ -70,20 +82,31 @@ module.exports = () => {
     data = data.filter((d) => d > '');
 
     function calculateTime(test) {
+      if(test.end) {
+        return;
+      }
       test.end = test.assertions[test.assertions.length - 1].end;
       test.assertions.forEach((assertion) => {
         assertion.start = test.start;
       });
     }
     data.forEach((plan) => {
-      for(var i = 0; i < plan.tests.length; i++) {
-        calculateTime(plan.tests[i]);
+      if(plan.tests && plan.tests.length === 0) {
+        // this is an empty test
+        plan.end = plan.start;
+      } else if(plan.tests && plan.tests.length > 0) {
+        for(var i = 0; i < plan.tests.length; i++) {
+          calculateTime(plan.tests[i]);
+        }
+        plan.end = plan.tests[plan.tests.length - 1].end;
+      } else {
+        // this is a flat test with only assertions
+        calculateTime(plan);
       }
-      plan.end = plan.tests[plan.tests.length - 1].end;
     });
 
     res['tests'] = data
-    Generate(res, process.cwd());
+    callback(res);
   });
 
   return dup;
