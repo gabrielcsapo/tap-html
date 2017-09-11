@@ -1,4 +1,4 @@
-# Unreleased
+# 0.1.0 (09/11/2017)
 
 - adds fields to `package.json` that were formerly missing
 - fixes a bug with flat tests
