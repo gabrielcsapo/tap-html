@@ -30,10 +30,10 @@ class Assertion extends React.Component {
 
 class Plan extends React.Component {
   getTotalTests(tests) {
-    return tests.map((test) => test['tests'] ? getTotalTests(test) : 1).reduce((a, b) => a + b);
+    return tests.map((test) => test['tests'] ? getTotalTests(test) : 1).reduce((a, b) => a + b, 0);
   }
   getTotalAssertions(tests) {
-    return tests.map((test) => test['tests'] ? getTotalAssertions(test) : test['assertions'].length).reduce((a, b) => a + b);
+    return tests.map((test) => test['tests'] ? getTotalAssertions(test) : test['assertions'].length).reduce((a, b) => a + b, 0);
   }
   render() {
     const { start, end, tests, name, type, assertions } = this.props;

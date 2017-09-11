@@ -1,0 +1,1 @@
+- [ ] inline external assets (fonts, icons)

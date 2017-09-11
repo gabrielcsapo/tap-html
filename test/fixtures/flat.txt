@@ -1,0 +1,15 @@
+TAP version 13
+# serial connection
+ok 1 got serialport
+# ble
+ok 2 got device discover
+ok 3 device connected
+ok 4 got characteristic
+ok 5 subcribed
+ok 6 got round-trip message
+
+1..6
+# tests 6
+# pass  6
+
+# ok
