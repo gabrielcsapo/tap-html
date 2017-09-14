@@ -1,3 +1,7 @@
+# 0.1.1 (09/13/2017)
+
+- fixes error when data is undefined and the extra event is triggered
+
 # 0.1.0 (09/11/2017)
 
 - adds fields to `package.json` that were formerly missing

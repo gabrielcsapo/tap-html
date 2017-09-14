@@ -30,7 +30,9 @@ module.exports = (callback) => {
   });
 
   tap.on('extra', (res) => {
-    data[currentPlan]['assertions'][currentAssertion]['console'] += `${res}\n`;
+    if(data && currentPlan > 0 && currentAssertion > 0) {
+      data[currentPlan]['assertions'][currentAssertion]['console'] += `${res}\n`;
+    }
   });
 
   tap.on('assert', (res) => {
