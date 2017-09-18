@@ -28,14 +28,8 @@ Options:
   -h, --help        output usage information
 ```
 
-## Example
-
 > This will generate a tap-html.html file
 
 ```
 tape test/**.js | tap-html --out ./tap-html.html
 ```
-
-## Example
-
-![example](./examples/example.png)

@@ -1,3 +1,9 @@
+# 0.1.2 (09/17/2017)
+
+- will recursively generate output directory if it doesn't exist
+- bundles font-awesome with output
+- adds storybook
+
 # 0.1.1 (09/13/2017)
 
 - fixes error when data is undefined and the extra event is triggered

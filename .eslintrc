@@ -1,7 +1,29 @@
 {
-  "extends": "eslint:recommended",
-  "env": {
-      "es6": true,
-      "node": true
-  }
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "config": true,
+        "report": true
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "rules": {
+      "react/prop-types": 0,
+      "react/jsx-key": 0
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react"
+    ]
 }
