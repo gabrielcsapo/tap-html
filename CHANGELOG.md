@@ -1,3 +1,7 @@
+# 0.1.3 (09/28/2017)
+
+- updates to react@16.0.0
+
 # 0.1.2 (09/17/2017)
 
 - will recursively generate output directory if it doesn't exist
