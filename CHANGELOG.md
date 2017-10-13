@@ -1,3 +1,7 @@
+# 0.1.4 (10/17/2017)
+
+- updates dependencies
+
 # 0.1.3 (09/28/2017)
 
 - updates to react@16.0.0
