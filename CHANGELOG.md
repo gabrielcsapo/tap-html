@@ -1,3 +1,7 @@
+# 0.1.5 (10/17/2017)
+
+- moves font-awesome to dependencies
+
 # 0.1.4 (10/17/2017)
 
 - updates dependencies
