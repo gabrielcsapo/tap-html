@@ -1,3 +1,7 @@
+# 0.1.6 (10/17/2017)
+
+- fixes a styling issue when trying to display an assertion without a parent as the first item in the list
+
 # 0.1.5 (10/17/2017)
 
 - moves font-awesome to dependencies

@@ -1,6 +1,6 @@
 {
   "name": "tap-html",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "📊 an html tap reporter",
   "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
   "license": "ISC",

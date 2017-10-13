@@ -22,7 +22,7 @@ class Plan extends React.Component {
       style['paddingLeft'] = '15px';
       style['paddingBottom'] = '25px';
     } else {
-      style['paddingTop'] = '10px';
+      style['marginTop'] = '60px';
       style['paddingBottom'] = '10px';
     }
 
