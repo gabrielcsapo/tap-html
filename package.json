@@ -53,6 +53,6 @@
     "eslint-plugin-react": "^7.4.0",
     "tap": "^10.7.2",
     "tape": "^4.6.3",
-    "tryitout": "^0.3.3"
+    "tryitout": "^0.3.4"
   }
 }
