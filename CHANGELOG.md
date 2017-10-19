@@ -1,12 +1,18 @@
-# 0.1.6 (10/17/2017)
+# 0.1.7 (10/18/2017)
+
+- uses babel-preset-env instead of babel-preset-es2015
+- updates webpack and babel
+- uses babel-minify-webpack-plugin to minify es6
+
+# 0.1.6 (10/11/2017)
 
 - fixes a styling issue when trying to display an assertion without a parent as the first item in the list
 
-# 0.1.5 (10/17/2017)
+# 0.1.5 (10/11/2017)
 
 - moves font-awesome to dependencies
 
-# 0.1.4 (10/17/2017)
+# 0.1.4 (10/11/2017)
 
 - updates dependencies
 
