@@ -4,7 +4,7 @@ script:
   - npm run lint
   - npm test
   - npm run coverage
-  - cat coverage/lcov.info | lcov-server --upload https://lcov-server.herokuapp.com
+  - cat coverage/lcov.info | lcov-server --upload https://lcov-server.gabrielcsapo.com
 node_js:
   - "6"
   - "8"

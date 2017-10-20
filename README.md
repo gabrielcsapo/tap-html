@@ -4,8 +4,8 @@
 
 [![Npm Version](https://img.shields.io/npm/v/tap-html.svg)](https://www.npmjs.com/package/tap-html)
 [![Build Status](https://travis-ci.org/gabrielcsapo/tap-html.svg?branch=master)](https://travis-ci.org/gabrielcsapo/tap-html)
-[![Dependency Status](https://david-dm.org/gabrielcsapo/tap-html.svg)](https://david-dm.org/gabrielcsapo/tap-html)
-[![devDependency Status](https://david-dm.org/gabrielcsapo/tap-html/dev-status.svg)](https://david-dm.org/gabrielcsapo/tap-html#info=devDependencies)
+[![Dependency Status](https://starbuck.gabrielcsapo.com/badge/github/gabrielcsapo/tap-html/status.svg)](https://starbuck.gabrielcsapo.com/github/gabrielcsapo/tap-html)
+[![devDependency Status](https://starbuck.gabrielcsapo.com/badge/github/gabrielcsapo/tap-html/dev-status.svg)](https://starbuck.gabrielcsapo.com/github/gabrielcsapo/tap-html#info=devDependencies)
 [![npm](https://img.shields.io/npm/dt/tap-html.svg)]()
 [![npm](https://img.shields.io/npm/dm/tap-html.svg)]()
 
