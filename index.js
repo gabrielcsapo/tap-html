@@ -1,5 +1,5 @@
-const Parser   = require('tap-parser');
-const Through  = require('through2');
+const Parser = require('tap-parser');
+const Through = require('through2');
 const Duplexer = require('duplexer');
 
 module.exports = (callback) => {
@@ -15,8 +15,13 @@ module.exports = (callback) => {
   var startTime = Date.now();
 
   tap.on('comment', (res) => {
-    if(!plan) {
-      data.push({ type: 'test', name: res, start: Date.now(), assertions: [] });
+    if (!plan) {
+      data.push({
+        type: 'test',
+        name: res,
+        start: Date.now(),
+        assertions: []
+      });
 
       // get the current index of the plan
       // so that we can use this to push the current assertions to it
@@ -30,7 +35,7 @@ module.exports = (callback) => {
   });
 
   tap.on('extra', (res) => {
-    if(data && currentPlan > 0 && currentAssertion > 0) {
+    if (data && currentPlan > 0 && currentAssertion > 0) {
       data[currentPlan]['assertions'][currentAssertion]['console'] += `${res}\n`;
     }
   });
@@ -54,21 +59,21 @@ module.exports = (callback) => {
     var plan = -1;
 
     // combine and clean up tests
-    for(var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
       // trims the name from having any extra new line breaks
       data[i].name = data[i].name.trim();
 
       // This is a top level plan
-      if(data[i].assertions.length == 0) {
+      if (data[i].assertions.length == 0) {
         // move on with the tests
         plan = i;
         data[plan].tests = [];
         delete data[i].assertions;
-      } else if(plan == -1) {
+      } else if (plan == -1) {
         // this is flat plan that has no parent do nothing
       } else {
         // We know this is part of the currentPlan
-        if(!data[plan]) {
+        if (!data[plan]) {
           data[plan] = {
             tests: []
           };
@@ -84,7 +89,7 @@ module.exports = (callback) => {
     data = data.filter((d) => d > '');
 
     function calculateTime(test) {
-      if(test.end) {
+      if (test.end) {
         return;
       }
       test.end = test.assertions[test.assertions.length - 1].end;
@@ -93,11 +98,11 @@ module.exports = (callback) => {
       });
     }
     data.forEach((plan) => {
-      if(plan.tests && plan.tests.length === 0) {
+      if (plan.tests && plan.tests.length === 0) {
         // this is an empty test
         plan.end = plan.start;
-      } else if(plan.tests && plan.tests.length > 0) {
-        for(var i = 0; i < plan.tests.length; i++) {
+      } else if (plan.tests && plan.tests.length > 0) {
+        for (var i = 0; i < plan.tests.length; i++) {
           calculateTime(plan.tests[i]);
         }
         plan.end = plan.tests[plan.tests.length - 1].end;

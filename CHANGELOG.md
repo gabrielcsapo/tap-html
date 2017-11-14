@@ -1,3 +1,8 @@
+# 0.1.8 (11/13/2017)
+
+- uses preact to reduce bundle size.
+  - 208 KB -> 130 KB (60% reduction in size)
+
 # 0.1.7 (10/18/2017)
 
 - uses babel-preset-env instead of babel-preset-es2015
