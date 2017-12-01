@@ -29,7 +29,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "commander": "^2.11.0",
+    "commander": "^2.12.2",
     "css-loader": "^0.28.4",
     "duplexer": "^0.1.1",
     "file-loader": "^1.1.5",
@@ -45,18 +45,18 @@
     "tap-parser": "^7.0.0",
     "through2": "^2.0.3",
     "url-loader": "^0.6.2",
-    "webpack": "^3.8.1"
+    "webpack": "^3.9.1"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.15",
+    "@storybook/react": "^3.2.16",
     "babel-minify-webpack-plugin": "^0.2.0",
     "babel-polyfill": "^6.26.0",
-    "eslint": "^4.9.0",
-    "eslint-plugin-react": "^7.4.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "tap": "^10.7.3",
+    "eslint": "^4.12.1",
+    "eslint-plugin-react": "^7.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "tap": "^11.0.0",
     "tape": "^4.6.3",
-    "tryitout": "^1.1.1"
+    "tryitout": "^1.2.0"
   }
 }
