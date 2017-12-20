@@ -2,17 +2,17 @@ const Parser = require('tap-parser');
 const Through = require('through2');
 const Duplexer = require('duplexer');
 
-module.exports = (callback) => {
-  var tap = new Parser();
-  var out = Through.obj();
-  var dup = Duplexer(tap, out);
+module.exports = function tapHTML(callback) {
+  const tap = new Parser();
+  const out = Through.obj();
+  const dup = Duplexer(tap, out);
 
-  var currentPlan = -1;
-  var currentAssertion = -1;
-  var data = [];
-  var plan = null;
+  let currentPlan = -1;
+  let currentAssertion = -1;
+  let data = [];
+  let plan = null;
 
-  var startTime = Date.now();
+  const startTime = Date.now();
 
   tap.on('comment', (res) => {
     if (!plan) {
@@ -89,9 +89,8 @@ module.exports = (callback) => {
     data = data.filter((d) => d > '');
 
     function calculateTime(test) {
-      if (test.end) {
-        return;
-      }
+      if (test.end) return;
+
       test.end = test.assertions[test.assertions.length - 1].end;
       test.assertions.forEach((assertion) => {
         assertion.start = test.start;

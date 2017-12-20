@@ -1,3 +1,10 @@
+# 0.2.0 (12/20/2017)
+
+- removes commander
+- improves readability
+- adds a named function `tapHTML` for readability
+- updates dependencies
+
 # 0.1.8 (11/13/2017)
 
 - uses preact to reduce bundle size.

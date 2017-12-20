@@ -1,9 +1,9 @@
 {
   "name": "tap-html",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "📊 an html tap reporter",
   "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrielcsapo/tap-html.git"
@@ -29,34 +29,33 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "commander": "^2.12.2",
     "css-loader": "^0.28.4",
     "duplexer": "^0.1.1",
-    "file-loader": "^1.1.5",
+    "file-loader": "^1.1.6",
     "font-awesome": "^4.7.0",
     "html-webpack-inline-source-plugin": "0.0.9",
     "html-webpack-plugin": "^2.29.0",
     "memory-fs": "^0.4.1",
-    "preact": "^8.2.6",
+    "preact": "^8.2.7",
     "preact-compat": "^3.17.0",
     "prop-types": "^15.6.0",
     "psychic-ui": "^1.0.7",
-    "style-loader": "^0.19.0",
+    "style-loader": "^0.19.1",
     "tap-parser": "^7.0.0",
     "through2": "^2.0.3",
     "url-loader": "^0.6.2",
-    "webpack": "^3.9.1"
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.16",
+    "@storybook/react": "^3.2.18",
     "babel-minify-webpack-plugin": "^0.2.0",
     "babel-polyfill": "^6.26.0",
-    "eslint": "^4.12.1",
+    "eslint": "^4.13.1",
     "eslint-plugin-react": "^7.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "tap": "^11.0.0",
     "tape": "^4.6.3",
-    "tryitout": "^1.2.0"
+    "tryitout": "^1.2.2"
   }
 }
