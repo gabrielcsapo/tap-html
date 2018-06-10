@@ -1,3 +1,7 @@
+# 0.2.1 (05/09/2018)
+
+- includes `babel-minify-webpack-plugin` as a dependency instead of devDependency.
+
 # 0.2.0 (12/20/2017)
 
 - removes commander
