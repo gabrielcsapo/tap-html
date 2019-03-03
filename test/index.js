@@ -5,7 +5,47 @@ const path = require('path');
 const parser = require('../index');
 
 test('tap-html', (t) => {
-  t.plan(3);
+  t.plan(4);
+
+  t.test('should be able to parse test that starts with range', (t) => {
+    const testWithPlanAsRange = fs.createReadStream(path.resolve(__dirname, './fixtures/test-with-plan-as-range.txt'));
+    testWithPlanAsRange.pipe(parser((res) => {
+      t.equal(res.ok, true);
+      t.equal(res.count, 2);
+      t.equal(res.pass, 2);
+      t.equal(res.fail, 0);
+      t.equal(res.bailout, false);
+      t.equal(res.todo, 0);
+      t.equal(res.skip, 0);
+      t.deepEqual(res.plan, {
+          "start": 1,
+          "end": 2,
+          "skipAll": false,
+          "skipReason": "",
+          "comment": ""
+      });
+      t.deepEqual(res.failures, []);
+      t.equal(res.tests.length, 2);
+      t.equal(res.tests[0].type, 'test');
+      t.equal(res.tests[0].name, '# Some description of a test');
+      t.equal(res.tests[0].assertions.length, 1);
+      t.equal(res.tests[0].assertions[0].type, 'assert');
+      t.equal(res.tests[0].assertions[0].number, 1);
+      t.equal(res.tests[0].assertions[0].name, 'Yep a test description');
+      t.equal(res.tests[0].assertions[0].ok, true);
+      t.equal(res.tests[0].assertions[0].console, '');
+
+      t.equal(res.tests[1].type, 'test');
+      t.equal(res.tests[1].name, '# Some other description of a test');
+      t.equal(res.tests[1].assertions.length, 1);
+      t.equal(res.tests[1].assertions[0].type, 'assert');
+      t.equal(res.tests[1].assertions[0].number, 2);
+      t.equal(res.tests[1].assertions[0].name, 'And this one is another test description');
+      t.equal(res.tests[1].assertions[0].ok, true);
+      t.equal(res.tests[1].assertions[0].console, '');
+      t.end();
+    }));
+  });
 
   t.test('should be able to parse flat test', (t) => {
     const flat = fs.createReadStream(path.resolve(__dirname, './fixtures/flat.txt'));
