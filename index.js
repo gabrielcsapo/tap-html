@@ -31,6 +31,8 @@ module.exports = function tapHTML(callback) {
   });
 
   tap.on('plan', (res) => {
+    if(typeof res !== 'string') return;
+
     plan = res;
   });
 

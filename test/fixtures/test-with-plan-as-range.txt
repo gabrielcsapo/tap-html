@@ -1,0 +1,5 @@
+1..2
+# Some description of a test
+ok 1 Yep a test description
+# Some other description of a test
+ok 2 And this one is another test description
