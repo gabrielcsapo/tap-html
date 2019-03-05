@@ -1,3 +1,7 @@
+# 0.3.0 (03/04/2019)
+
+- fixes issue with plan not checking for plan name to be a string and instead uses range
+
 # 0.2.1 (05/09/2018)
 
 - includes `babel-minify-webpack-plugin` as a dependency instead of devDependency.
