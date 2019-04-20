@@ -1,3 +1,7 @@
+# 1.0.1 (04/20/2019)
+
+- fixes backwards compatibility with node@8
+
 # 1.0.0 (04/20/2019)
 
 - removes react dependencies

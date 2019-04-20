@@ -2,9 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
-
-const writeFile = promisify(fs.writeFile);
 
 const parser = require('../');
 const { generate } = require('../lib/generate');
@@ -46,12 +43,12 @@ Options:
 const { out } = program;
 
 process.stdin
-  .pipe(parser(async (res) => {
+  .pipe(parser((res) => {
     const outputPath = out ? path.resolve(__dirname, out) : path.resolve(process.cwd(), 'tap.html');
 
     // generate the html report
-    const output = await generate(res);
+    const output = generate(res);
 
-    await writeFile(outputPath, output);
+    fs.writeFileSync(outputPath, output);
   }))
   .pipe(process.stdout);
