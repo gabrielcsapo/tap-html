@@ -2,7 +2,6 @@ module.exports = {
   title: 'tap-html',
   nav: {
     Source: 'https://github.com/gabrielcsapo/tap-html',
-    Storybook: './storybook/index.html',
     Example: './example/index.html'
   },
   body: `

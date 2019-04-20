@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
+
+const writeFile = promisify(fs.writeFile);
+
 const parser = require('../');
-const generate = require('../lib/generate');
+const { generate } = require('../lib/generate');
 
 let program = {};
 const args = process.argv.slice(2);
@@ -14,7 +19,7 @@ args.forEach((arg, i) => {
     case 'version':
       console.log(`v${require('../package.json').version}`); // eslint-disable-line
       process.exit(0);
-    break;
+      break;
     case '-h':
     case '--help':
     case 'help':
@@ -30,24 +35,23 @@ Options:
   -o, --outFile [path]            If instead of piping content you want it to be written to an html file locally please specify the relative path
 `);
       process.exit(0);
-    break;
+      break;
     case '-o':
     case '--out':
       program['out'] = path.resolve(process.cwd(), args[i + 1]);
-    break;
+      break;
   }
 });
 
 const { out } = program;
 
 process.stdin
-  .pipe(parser((res) => {
+  .pipe(parser(async (res) => {
+    const outputPath = out ? path.resolve(__dirname, out) : path.resolve(process.cwd(), 'tap.html');
+
     // generate the html report
-    if(out) {
-      // write the output to the specified location
-      generate(res, out);
-    } else {
-      generate(res);
-    }
+    const output = await generate(res);
+
+    await writeFile(outputPath, output);
   }))
   .pipe(process.stdout);

@@ -2,7 +2,7 @@ const Parser = require('tap-parser');
 const Through = require('through2');
 const Duplexer = require('duplexer');
 
-module.exports = function tapHTML(callback) {
+module.exports = function tapHTML (callback) {
   const tap = new Parser();
   const out = Through.obj();
   const dup = Duplexer(tap, out);
@@ -31,7 +31,7 @@ module.exports = function tapHTML(callback) {
   });
 
   tap.on('plan', (res) => {
-    if(typeof res !== 'string') return;
+    if (typeof res !== 'string') return;
 
     plan = res;
   });
@@ -66,12 +66,12 @@ module.exports = function tapHTML(callback) {
       data[i].name = data[i].name.trim();
 
       // This is a top level plan
-      if (data[i].assertions.length == 0) {
+      if (data[i].assertions.length === 0) {
         // move on with the tests
         plan = i;
         data[plan].tests = [];
         delete data[i].assertions;
-      } else if (plan == -1) {
+      } else if (plan === -1) {
         // this is flat plan that has no parent do nothing
       } else {
         // We know this is part of the currentPlan
@@ -90,7 +90,7 @@ module.exports = function tapHTML(callback) {
 
     data = data.filter((d) => d > '');
 
-    function calculateTime(test) {
+    function calculateTime (test) {
       if (test.end) return;
 
       test.end = test.assertions[test.assertions.length - 1].end;
@@ -113,7 +113,7 @@ module.exports = function tapHTML(callback) {
       }
     });
 
-    res['tests'] = data
+    res['tests'] = data;
     callback(res);
   });
 

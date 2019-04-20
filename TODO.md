@@ -1,2 +1,0 @@
-- [ ] inline external assets (fonts, icons)
-- [ ] including react / preact is overkill, this could output a truly static file.

@@ -18,11 +18,11 @@ test('tap-html', (t) => {
       t.equal(res.todo, 0);
       t.equal(res.skip, 0);
       t.deepEqual(res.plan, {
-          "start": 1,
-          "end": 2,
-          "skipAll": false,
-          "skipReason": "",
-          "comment": ""
+        'start': 1,
+        'end': 2,
+        'skipAll': false,
+        'skipReason': '',
+        'comment': ''
       });
       t.deepEqual(res.failures, []);
       t.equal(res.tests.length, 2);
@@ -188,5 +188,4 @@ test('tap-html', (t) => {
       t.end();
     }));
   });
-
 });

@@ -1,6 +1,6 @@
 {
   "name": "tap-html",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "📊 an html tap reporter",
   "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
   "license": "MIT",
@@ -14,47 +14,23 @@
   "homepage": "https://github.com/gabrielcsapo/tap-html#readme",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "semistandard",
     "test": "tape test/index.js | ./bin/index.js --out ./docs/example/index.html",
     "coverage": "tap test --coverage --coverage-report=lcov",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --output-dir=./docs/storybook",
     "generate-docs": "tryitout"
   },
   "bin": {
     "tap-html": "./bin/index.js"
   },
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.1.1",
-    "babel-minify-webpack-plugin": "^0.3.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.8",
     "duplexer": "^0.1.1",
-    "file-loader": "^1.1.6",
-    "font-awesome": "^4.7.0",
-    "html-webpack-inline-source-plugin": "0.0.10",
-    "html-webpack-plugin": "^3.2.0",
-    "memory-fs": "^0.4.1",
-    "preact": "^8.2.7",
-    "preact-compat": "^3.17.0",
-    "prop-types": "^15.6.0",
     "psychic-ui": "^1.0.7",
-    "style-loader": "^0.21.0",
-    "tap-parser": "^7.0.0",
-    "through2": "^2.0.3",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.12.0"
+    "tap-parser": "^9.3.2",
+    "through2": "^3.0.1"
   },
   "devDependencies": {
-    "@storybook/react": "^3.3.8",
-    "babel-polyfill": "^6.26.0",
-    "eslint": "^4.15.0",
-    "eslint-plugin-react": "^7.5.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "tap": "^12.0.1",
+    "semistandard": "^13.0.1",
+    "tap": "^12.6.2",
     "tape": "^4.6.3",
     "tryitout": "^2.0.1"
   }

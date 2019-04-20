@@ -1,3 +1,8 @@
+# 1.0.0 (04/20/2019)
+
+- removes react dependencies
+- inlines assets
+
 # 0.3.0 (03/04/2019)
 
 - fixes issue with plan not checking for plan name to be a string and instead uses range
