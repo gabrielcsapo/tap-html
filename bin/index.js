@@ -7,6 +7,7 @@ const parser = require('../');
 const { generate } = require('../lib/generate');
 
 let program = {};
+let exitCode;
 const args = process.argv.slice(2);
 
 args.forEach((arg, i) => {
@@ -15,7 +16,7 @@ args.forEach((arg, i) => {
     case '--version':
     case 'version':
       console.log(`v${require('../package.json').version}`); // eslint-disable-line
-      process.exit(0);
+      exitCode = 0;
       break;
     case '-h':
     case '--help':
@@ -31,7 +32,7 @@ Commands:
 Options:
   -o, --outFile [path]            If instead of piping content you want it to be written to an html file locally please specify the relative path
 `);
-      process.exit(0);
+      exitCode = 0;
       break;
     case '-o':
     case '--out':
@@ -39,6 +40,8 @@ Options:
       break;
   }
 });
+
+if (exitCode >= 0) process.exit(exitCode);
 
 const { out } = program;
 
