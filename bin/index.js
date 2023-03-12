@@ -47,11 +47,15 @@ const { out } = program;
 
 process.stdin
   .pipe(parser((res) => {
-    const outputPath = out ? path.resolve(__dirname, out) : path.resolve(process.cwd(), 'tap.html');
-
     // generate the html report
     const output = generate(res);
 
-    fs.writeFileSync(outputPath, output);
+    // Produce output either in a file or on stdout.
+    if (out) {
+      const outputPath = path.resolve(__dirname, out);
+      fs.writeFileSync(outputPath, output);
+    } else {
+      process.stdout.write(output);
+    }
   }))
   .pipe(process.stdout);

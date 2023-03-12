@@ -1,3 +1,7 @@
+# Unreleased
+
+- Change behavior when no output file is given to tap-html to restore what is described in README.md
+
 # 1.0.1 (04/20/2019)
 
 - fixes backwards compatibility with node@8
