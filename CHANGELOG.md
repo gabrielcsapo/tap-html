@@ -1,3 +1,8 @@
+# Unreleased
+
+- fixes issue when no assert name is provided
+- fixes issue when no test name is provided with TAP comment
+
 # 1.0.1 (04/20/2019)
 
 - fixes backwards compatibility with node@8

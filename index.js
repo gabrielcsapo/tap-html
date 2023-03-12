@@ -14,19 +14,23 @@ module.exports = function tapHTML (callback) {
 
   const startTime = Date.now();
 
+  function pushTest(name) {
+    data.push({
+      type: 'test',
+      name: name,
+      start: Date.now(),
+      assertions: []
+    });
+
+    // get the current index of the plan
+    // so that we can use this to push the current assertions to it
+    currentPlan += 1;
+    currentAssertion = -1;
+  }
+
   tap.on('comment', (res) => {
     if (!plan) {
-      data.push({
-        type: 'test',
-        name: res,
-        start: Date.now(),
-        assertions: []
-      });
-
-      // get the current index of the plan
-      // so that we can use this to push the current assertions to it
-      currentPlan += 1;
-      currentAssertion = -1;
+      pushTest(res);
     }
   });
 
@@ -43,6 +47,16 @@ module.exports = function tapHTML (callback) {
   });
 
   tap.on('assert', (res) => {
+    // If no plan is registered yet, create a default plan.
+    if(currentPlan == -1) {
+      pushTest('default');
+    }
+
+    // TAP does not require a name. If no name is registered, set a default name.
+    if (!res.name) {
+      res.name = 'test #' + res.id;
+    }
+
     data[currentPlan].assertions.push({
       type: 'assert',
       number: res.id,
