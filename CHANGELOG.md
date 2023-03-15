@@ -2,6 +2,7 @@
 
 - fixes issue when no assert name is provided
 - fixes issue when no test name is provided with TAP comment
+- Change behavior when no output file is given to tap-html to restore what is described in README.md
 
 # 1.0.1 (04/20/2019)
 
