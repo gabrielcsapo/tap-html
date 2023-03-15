@@ -1,8 +1,9 @@
-# Unreleased
+# 1.1.0 (03/14/2023)
 
-- fixes issue when no assert name is provided
-- fixes issue when no test name is provided with TAP comment
-- Change behavior when no output file is given to tap-html to restore what is described in README.md
+- fixes issue when no assert name is provided (#11) - @achappuis
+- fixes issue when no test name is provided with TAP comment (#11) - @achappuis
+- Change behavior when no output file is given to tap-html to restore what is described in README.md (#5) - @achappuis
+- Updates deps to latest - @gcsapo
 
 # 1.0.1 (04/20/2019)
 
