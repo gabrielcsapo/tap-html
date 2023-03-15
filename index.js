@@ -1,8 +1,8 @@
-const Parser = require('tap-parser');
-const Through = require('through2');
-const Duplexer = require('duplexer');
+const { Parser } = require("tap-parser");
+const Through = require("through2");
+const Duplexer = require("duplexer");
 
-module.exports = function tapHTML (callback) {
+module.exports = function tapHTML(callback) {
   const tap = new Parser();
   const out = Through.obj();
   const dup = Duplexer(tap, out);
@@ -16,10 +16,10 @@ module.exports = function tapHTML (callback) {
 
   function pushTest(name) {
     data.push({
-      type: 'test',
+      type: "test",
       name: name,
       start: Date.now(),
-      assertions: []
+      assertions: [],
     });
 
     // get the current index of the plan
@@ -28,49 +28,51 @@ module.exports = function tapHTML (callback) {
     currentAssertion = -1;
   }
 
-  tap.on('comment', (res) => {
+  tap.on("comment", (res) => {
     if (!plan) {
       pushTest(res);
     }
   });
 
-  tap.on('plan', (res) => {
-    if (typeof res !== 'string') return;
+  tap.on("plan", (res) => {
+    if (typeof res !== "string") return;
 
     plan = res;
   });
 
-  tap.on('extra', (res) => {
+  tap.on("extra", (res) => {
     if (data && currentPlan > 0 && currentAssertion > 0) {
-      data[currentPlan]['assertions'][currentAssertion]['console'] += `${res}\n`;
+      data[currentPlan]["assertions"][currentAssertion][
+        "console"
+      ] += `${res}\n`;
     }
   });
 
-  tap.on('assert', (res) => {
+  tap.on("assert", (res) => {
     // If no plan is registered yet, create a default plan.
-    if(currentPlan == -1) {
-      pushTest('default');
+    if (currentPlan == -1) {
+      pushTest("default");
     }
 
     // TAP does not require a name. If no name is registered, set a default name.
     if (!res.name) {
-      res.name = 'test #' + res.id;
+      res.name = "test #" + res.id;
     }
 
     data[currentPlan].assertions.push({
-      type: 'assert',
+      type: "assert",
       number: res.id,
       name: res.name,
       ok: res.ok,
       diag: res.diag,
-      console: '',
-      end: Date.now()
+      console: "",
+      end: Date.now(),
     });
     currentAssertion += 1;
   });
 
-  tap.on('complete', (res) => {
-    res['time'] = Date.now() - startTime;
+  tap.on("complete", (res) => {
+    res["time"] = Date.now() - startTime;
 
     var plan = -1;
 
@@ -91,7 +93,7 @@ module.exports = function tapHTML (callback) {
         // We know this is part of the currentPlan
         if (!data[plan]) {
           data[plan] = {
-            tests: []
+            tests: [],
           };
         } else {
           data[plan].tests = data[plan].tests || [];
@@ -102,9 +104,9 @@ module.exports = function tapHTML (callback) {
       }
     }
 
-    data = data.filter((d) => d > '');
+    data = data.filter((d) => d > "");
 
-    function calculateTime (test) {
+    function calculateTime(test) {
       if (test.end) return;
 
       test.end = test.assertions[test.assertions.length - 1].end;
@@ -127,7 +129,7 @@ module.exports = function tapHTML (callback) {
       }
     });
 
-    res['tests'] = data;
+    res["tests"] = data;
     callback(res);
   });
 
