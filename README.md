@@ -26,7 +26,7 @@ Commands:
   -v, --version, version          Output the version number
 
 Options:
-  -o, --outFile [path]            If instead of piping content you want it to be written to an html file locally please specify the relative path
+  -o, --out [path]            If instead of piping content you want it to be written to an html file locally please specify the relative path
 ```
 
 By default tap parser should be pipeable as such:
