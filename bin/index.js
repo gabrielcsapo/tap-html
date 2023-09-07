@@ -30,7 +30,7 @@ Commands:
   -v, --version, version          Output the version number
 
 Options:
-  -o, --outFile [path]            If instead of piping content you want it to be written to an html file locally please specify the relative path
+  -o, --out [path]                If instead of piping content you want it to be written to an html file locally please specify the relative path
 `);
       exitCode = 0;
       break;
@@ -53,6 +53,7 @@ process.stdin
     // Produce output either in a file or on stdout.
     if (out) {
       const outputPath = path.resolve(__dirname, out);
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       fs.writeFileSync(outputPath, output);
     } else {
       process.stdout.write(output);
